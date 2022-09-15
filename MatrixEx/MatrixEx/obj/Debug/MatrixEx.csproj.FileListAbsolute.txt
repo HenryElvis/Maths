@@ -1,0 +1,9 @@
+D:\Cours\A4 2022-2023\Maths\MatrixEx\MatrixEx\obj\Debug\MatrixEx.csproj.AssemblyReference.cache
+D:\Cours\A4 2022-2023\Maths\MatrixEx\MatrixEx\obj\Debug\MatrixEx.csproj.CoreCompileInputs.cache
+D:\Cours\A4 2022-2023\Maths\MatrixEx\MatrixEx\bin\Debug\MatrixEx.dll
+D:\Cours\A4 2022-2023\Maths\MatrixEx\MatrixEx\bin\Debug\MatrixEx.pdb
+D:\Cours\A4 2022-2023\Maths\MatrixEx\MatrixEx\bin\Debug\nunit.framework.dll
+D:\Cours\A4 2022-2023\Maths\MatrixEx\MatrixEx\bin\Debug\nunit.framework.xml
+D:\Cours\A4 2022-2023\Maths\MatrixEx\MatrixEx\obj\Debug\MatrixEx.csproj.CopyComplete
+D:\Cours\A4 2022-2023\Maths\MatrixEx\MatrixEx\obj\Debug\MatrixEx.dll
+D:\Cours\A4 2022-2023\Maths\MatrixEx\MatrixEx\obj\Debug\MatrixEx.pdb
