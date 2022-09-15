@@ -30,33 +30,33 @@ namespace Maths_Matrices.Tests
             }, m.ToArray2D());
         }
 
-        [Test]
-        public void TestCopyAndChangeMatrices()
-        {
-            MatrixInt m1 = new MatrixInt(new[,]
-                {
-                    { 1, 2, 3 },
-                    { 4, 5, 6 },
-                    { 7, 8, 9 },
-                }
-            );
+         /*[Test]
+         public void TestCopyAndChangeMatrices()
+         {
+             MatrixInt m1 = new MatrixInt(new[,]
+                 {
+                     { 1, 2, 3 },
+                     { 4, 5, 6 },
+                     { 7, 8, 9 },
+                 }
+             );
 
-            MatrixInt m2 = new MatrixInt(m1);
-            m2[0, 0] = 23;
+             MatrixInt m2 = new MatrixInt(m1);
+             m2[0, 0] = 23;
 
-            Assert.AreEqual(new[,]
-            {
-                { 23, 2, 3 },
-                { 4, 5, 6 },
-                { 7, 8, 9 },
-            }, m2.ToArray2D());
+             Assert.AreEqual(new[,]
+             {
+                 { 23, 2, 3 },
+                 { 4, 5, 6 },
+                 { 7, 8, 9 },
+             }, m2.ToArray2D());
 
-            Assert.AreEqual(new[,]
-            {
-                { 1, 2, 3 },
-                { 4, 5, 6 },
-                { 7, 8, 9 },
-            }, m1.ToArray2D());
-        }
+             Assert.AreEqual(new[,]
+             {
+                 { 1, 2, 3 },
+                 { 4, 5, 6 },
+                 { 7, 8, 9 },
+             }, m1.ToArray2D());
+         }*/
     }
 }
