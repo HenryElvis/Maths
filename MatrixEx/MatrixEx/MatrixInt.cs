@@ -13,7 +13,11 @@
             NbColumns = column;
         }
 
-        public int this[int i, int j] => _array[i, j];
+        public int this[int i, int j]
+        {
+            get => _array[i, j];
+            set => _array[i, j] = value;
+        }
 
         public MatrixInt(int[,] newArray)
         {
@@ -21,6 +25,11 @@
             NbColumns = newArray.GetLength(1);
             
             _array = newArray;
+        }
+
+        public MatrixInt(MatrixInt matrix)
+        {
+            // _array = matrix;
         }
 
         public int[,] ToArray2D()

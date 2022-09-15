@@ -1,13 +1,4 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=46871e28_002D6deb_002D41f1_002D8cd6_002D0c33a32ca4b6/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Tests01_NewMatrices.cs #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;ProjectFile&gt;908D81A6-3B5E-4B1B-A9C2-06FD212FB8E3/f:Tests01_NewMatrices.cs&lt;/ProjectFile&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=72be2bc4_002D4b21_002D4fda_002Da6f8_002D622b2a0e559e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Tests01_NewMatrices.cs #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;ProjectFile&gt;908D81A6-3B5E-4B1B-A9C2-06FD212FB8E3/f:Tests01_NewMatrices.cs&lt;/ProjectFile&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=7304bc10_002Dc73c_002D4028_002D871e_002D7f351f17cefc/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Tests01_NewMatrices.cs #4" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;ProjectFile&gt;908D81A6-3B5E-4B1B-A9C2-06FD212FB8E3/f:Tests01_NewMatrices.cs&lt;/ProjectFile&gt;&#xD;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=7b84fe71_002D81f7_002D40fb_002D9d5f_002D3472878ec0f7/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Tests01_NewMatrices.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;ProjectFile&gt;908D81A6-3B5E-4B1B-A9C2-06FD212FB8E3/f:Tests01_NewMatrices.cs&lt;/ProjectFile&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b6574df7_002D1ac0_002D4b49_002Dabea_002D22b9e8cb7fa6/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Tests02_CopyAndModifyMatrices.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;ProjectFile&gt;908D81A6-3B5E-4B1B-A9C2-06FD212FB8E3/f:Tests02_CopyAndModifyMatrices.cs&lt;/ProjectFile&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
