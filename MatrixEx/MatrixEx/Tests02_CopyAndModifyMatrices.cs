@@ -30,7 +30,7 @@ namespace Maths_Matrices.Tests
             }, m.ToArray2D());
         }
 
-         /*[Test]
+         [Test]
          public void TestCopyAndChangeMatrices()
          {
              MatrixInt m1 = new MatrixInt(new[,]
@@ -57,6 +57,6 @@ namespace Maths_Matrices.Tests
                  { 4, 5, 6 },
                  { 7, 8, 9 },
              }, m1.ToArray2D());
-         }*/
+         }
     }
 }
