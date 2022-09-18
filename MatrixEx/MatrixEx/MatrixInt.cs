@@ -94,6 +94,24 @@ namespace MatrixEx
             
             return true;
         }
+
+        public MatrixInt Multiply(int mult)
+        {
+            for (int i = 0; i < NbLines; i++)
+            {
+                for (int j = 0; j < NbColumns; j++)
+                {
+                    _array[i, j] *= mult;
+                }
+            }
+
+            return new MatrixInt(_array);
+        }
+        
+        public static MatrixInt Multiply(MatrixInt matrix, int mult)
+        {
+            return matrix.Multiply(mult);
+        }
         
         public int[,] ToArray2D()
         {

@@ -4,5 +4,6 @@
     &lt;ProjectFile&gt;908D81A6-3B5E-4B1B-A9C2-06FD212FB8E3/f:Tests02_CopyAndModifyMatrices.cs&lt;/ProjectFile&gt;&#xD;
     &lt;ProjectFile&gt;908D81A6-3B5E-4B1B-A9C2-06FD212FB8E3/f:Tests01_NewMatrices.cs&lt;/ProjectFile&gt;&#xD;
     &lt;ProjectFile&gt;908D81A6-3B5E-4B1B-A9C2-06FD212FB8E3/f:Tests03_IdentityMatrices.cs&lt;/ProjectFile&gt;&#xD;
+    &lt;ProjectFile&gt;908D81A6-3B5E-4B1B-A9C2-06FD212FB8E3/f:Tests04_ScalarMultiplication.cs&lt;/ProjectFile&gt;&#xD;
   &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
