@@ -53,7 +53,7 @@ namespace Maths_Matrices.Tests
             }, m.ToArray2D());
         }
 
-        /*[Test]
+        [Test]
         public void TestScalarMultiplicationOperator()
         {
             MatrixInt m = new MatrixInt(new[,]
@@ -89,9 +89,9 @@ namespace Maths_Matrices.Tests
                 { 16, 20, 24 },
                 { 28, 32, 36 },
             }, m4.ToArray2D());
-        }*/
+        }
 
-        /*[Test]
+        [Test]
         public void TestNegativeMatrix()
         {
             MatrixInt m1 = new MatrixInt(new int[,]
@@ -109,6 +109,6 @@ namespace Maths_Matrices.Tests
                 { -4, 5, -6 },
                 { 7, -8, -9 }
             }, m2.ToArray2D());
-        }*/
+        }
     }
 }

@@ -27,8 +27,6 @@ namespace MatrixEx
         {
             NbLines = newArray.GetLength(0);
             NbColumns = newArray.GetLength(1);
-
-            // _array = newArray;
             
             _array = new int[this.NbLines,this.NbColumns];
             Array.Copy(newArray, _array, _array.Length);
@@ -36,9 +34,6 @@ namespace MatrixEx
 
         public MatrixInt(MatrixInt matrix)
         {
-            // _array = new int[NbLines, NbColumns];
-            // _array =  matrix._array;
-
             NbLines = matrix.NbLines;
             NbColumns = matrix.NbColumns;
             
@@ -104,13 +99,31 @@ namespace MatrixEx
                     _array[i, j] *= mult;
                 }
             }
-
+            
             return new MatrixInt(_array);
         }
-        
+
         public static MatrixInt Multiply(MatrixInt matrix, int mult)
         {
+            matrix = new MatrixInt(matrix._array);
+            
             return matrix.Multiply(mult);
+        }
+        
+        public static MatrixInt operator *(MatrixInt a, int mult)
+        {
+            return Multiply(a, mult);
+        }        
+        
+        public static MatrixInt operator *(int mult, MatrixInt a)
+        {
+            return Multiply(a, mult);
+        }        
+        
+        public static MatrixInt operator -(MatrixInt a)
+        {
+            a *= -1;
+            return new MatrixInt(a);
         }
         
         public int[,] ToArray2D()
