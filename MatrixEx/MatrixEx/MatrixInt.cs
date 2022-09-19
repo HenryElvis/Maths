@@ -125,6 +125,39 @@ namespace MatrixEx
             a *= -1;
             return new MatrixInt(a);
         }
+
+        public void Add(MatrixInt matrix)
+        {
+            matrix = new MatrixInt(matrix._array);
+            
+            for (int i = 0; i <= NbLines -1; i++)
+            {
+                for (int j = 0; j <= NbColumns -1; j++)
+                {
+                    _array[i, j] += matrix._array[i, j];
+                }
+            }
+        }
+
+        public static MatrixInt Add(MatrixInt a, MatrixInt b)
+        {
+            MatrixInt newMatrix = null;
+            
+            a = new MatrixInt(a._array);
+            b = new MatrixInt(b._array);
+
+            for (int i = 0; i <= a.NbLines -1; i++)
+            {
+                for (int j = 0; j <= a.NbColumns -1; j++)
+                {
+                    a[i, j] = a._array[i, j] + b._array[i, j];
+
+                    newMatrix = new MatrixInt(a);
+                }
+            }
+            
+            return newMatrix;
+        }
         
         public int[,] ToArray2D()
         {
