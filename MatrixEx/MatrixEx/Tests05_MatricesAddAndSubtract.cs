@@ -123,7 +123,7 @@ namespace Maths_Matrices.Tests
             }, m2.ToArray2D());
         }
 
-        /*[Test]
+        [Test]
         public void TestSubtractMatricesOperator()
         {
             MatrixInt m1 = new MatrixInt(new[,]
@@ -148,9 +148,9 @@ namespace Maths_Matrices.Tests
                 { 8, 1 },
                 { -1, -13 },
             }, m3.ToArray2D());
-        }*/
+        }
         
-        /*[Test]
+        [Test]
         public void TestImpossibleSumMatrices()
         {
             MatrixInt m1 = new MatrixInt(new[,]
@@ -185,6 +185,6 @@ namespace Maths_Matrices.Tests
             {
                 MatrixInt m3 = m1 + m2;
             });
-        }*/
+        }
     }
 }

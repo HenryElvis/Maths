@@ -27,8 +27,8 @@ namespace MatrixEx
         {
             NbLines = newArray.GetLength(0);
             NbColumns = newArray.GetLength(1);
-            
-            _array = new int[this.NbLines,this.NbColumns];
+
+            _array = new int[this.NbLines, this.NbColumns];
             Array.Copy(newArray, _array, _array.Length);
         }
 
@@ -36,7 +36,7 @@ namespace MatrixEx
         {
             NbLines = matrix.NbLines;
             NbColumns = matrix.NbColumns;
-            
+
             _array = new int[matrix.NbLines, matrix.NbColumns];
             Array.Copy(matrix._array, _array, _array.Length);
         }
@@ -59,7 +59,7 @@ namespace MatrixEx
                 }
             }
         }
-        
+
         public static MatrixInt Identity(int value)
         {
             return new MatrixInt(value);
@@ -69,7 +69,7 @@ namespace MatrixEx
         {
             if (_array.GetLength(0) != _array.GetLength(1))
                 return false;
-            
+
             for (int i = 0; i < NbLines; i++)
             {
                 for (int j = 0; j < NbColumns; j++)
@@ -86,7 +86,7 @@ namespace MatrixEx
                     }
                 }
             }
-            
+
             return true;
         }
 
@@ -99,40 +99,45 @@ namespace MatrixEx
                     _array[i, j] *= mult;
                 }
             }
-            
+
             return new MatrixInt(_array);
         }
 
         public static MatrixInt Multiply(MatrixInt matrix, int mult)
         {
             matrix = new MatrixInt(matrix._array);
-            
+
             return matrix.Multiply(mult);
         }
-        
+
         public static MatrixInt operator *(MatrixInt a, int mult)
         {
             return Multiply(a, mult);
-        }        
-        
+        }
+
         public static MatrixInt operator *(int mult, MatrixInt a)
         {
             return Multiply(a, mult);
-        }        
-        
+        }
+
         public static MatrixInt operator -(MatrixInt a)
         {
             a *= -1;
+            
             return new MatrixInt(a);
         }
 
         public void Add(MatrixInt matrix)
         {
             matrix = new MatrixInt(matrix._array);
+
+            if (matrix.NbLines != NbLines ||
+                matrix.NbColumns != NbColumns)
+                throw new MatrixSumException();
             
-            for (int i = 0; i <= NbLines -1; i++)
+            for (int i = 0; i <= NbLines - 1; i++)
             {
-                for (int j = 0; j <= NbColumns -1; j++)
+                for (int j = 0; j <= NbColumns - 1; j++)
                 {
                     _array[i, j] += matrix._array[i, j];
                 }
@@ -142,26 +147,63 @@ namespace MatrixEx
         public static MatrixInt Add(MatrixInt a, MatrixInt b)
         {
             MatrixInt newMatrix = null;
-            
+
             a = new MatrixInt(a._array);
             b = new MatrixInt(b._array);
 
-            for (int i = 0; i <= a.NbLines -1; i++)
+            if (a.NbLines != b.NbLines ||
+                a.NbColumns != b.NbColumns)
+                throw new MatrixSumException();
+            
+            for (int i = 0; i <= a.NbLines - 1; i++)
             {
-                for (int j = 0; j <= a.NbColumns -1; j++)
+                for (int j = 0; j <= a.NbColumns - 1; j++)
                 {
                     a[i, j] = a._array[i, j] + b._array[i, j];
 
                     newMatrix = new MatrixInt(a);
                 }
             }
-            
+
             return newMatrix;
         }
-        
+
+        public static MatrixInt operator-(MatrixInt a, MatrixInt b)
+        {
+            MatrixInt newMatrix = null;
+
+            a = new MatrixInt(a._array);
+            b = new MatrixInt(b._array);
+
+            for (int i = 0; i <= a.NbLines - 1; i++)
+            {
+                for (int j = 0; j <= a.NbColumns - 1; j++)
+                {
+                    a[i, j] = a._array[i, j] - b._array[i, j];
+
+                    newMatrix = new MatrixInt(a);
+                }
+            }
+
+            return newMatrix;
+        }
+
+        public static MatrixInt operator +(MatrixInt a, MatrixInt b)
+        {
+            return Add(a, b);
+        }
+
         public int[,] ToArray2D()
         {
             return _array;
+        }
+    }
+
+    public class MatrixSumException : Exception
+    {
+        public MatrixSumException()
+        {
+            
         }
     }
 }
