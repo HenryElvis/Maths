@@ -110,6 +110,16 @@ namespace MatrixEx
             return matrix.Multiply(mult);
         }
 
+        public MatrixInt Multiply(MatrixInt matrix)
+        {
+            return matrix;
+        }        
+        
+        public static MatrixInt Multiply(MatrixInt a, MatrixInt b)
+        {
+            return a;
+        }
+
         public static MatrixInt operator *(MatrixInt a, int mult)
         {
             return Multiply(a, mult);
@@ -118,6 +128,11 @@ namespace MatrixEx
         public static MatrixInt operator *(int mult, MatrixInt a)
         {
             return Multiply(a, mult);
+        }
+
+        public static MatrixInt operator *(MatrixInt a, MatrixInt b)
+        {
+            return a;
         }
 
         public static MatrixInt operator -(MatrixInt a)
@@ -205,5 +220,10 @@ namespace MatrixEx
         {
             
         }
+    }
+
+    public class MatrixMultiplyException : Exception
+    {
+        
     }
 }
