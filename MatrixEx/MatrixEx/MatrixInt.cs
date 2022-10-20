@@ -112,12 +112,53 @@ namespace MatrixEx
 
         public MatrixInt Multiply(MatrixInt matrix)
         {
-            return matrix;
+            matrix = new MatrixInt(matrix._array);
+            
+            int line = 0;
+            int column = 0;
+
+            line = matrix.NbLines < NbLines ? NbLines : matrix.NbLines;
+            column = matrix.NbColumns < NbColumns ? NbColumns : matrix.NbColumns;
+            
+            MatrixInt newMatrix = new MatrixInt(line, column);
+
+            if (matrix.NbLines != NbColumns)
+                throw new MatrixMultiplyException();
+            
+            for (int x = 0; x < line; x++)
+            {
+                for (int y = 0; y < column; y++)
+                {
+                    newMatrix[x, y] = _array[x, 0] * matrix._array[0, y] + _array[x, 1] * 
+                        matrix._array[1, y];
+                }
+            }
+            
+            return newMatrix;
         }        
         
         public static MatrixInt Multiply(MatrixInt a, MatrixInt b)
         {
-            return a;
+            int line = 0;
+            int column = 0;
+
+            line = a.NbLines < b.NbLines ? b.NbLines : a.NbLines;
+            column = a.NbColumns < b.NbColumns ? b.NbColumns : a.NbColumns;
+            
+            MatrixInt newMatrix = new MatrixInt(line, column);
+
+            if (b.NbLines != a.NbColumns)
+                throw new MatrixMultiplyException();
+            
+            for (int x = 0; x < line; x++)
+            {
+                for (int y = 0; y < column; y++)
+                {
+                    newMatrix[x, y] = a._array[x, 0] * b._array[0, y] + a._array[x, 1] * b._array[1, y];
+                }
+            }
+            
+            return newMatrix;
         }
 
         public static MatrixInt operator *(MatrixInt a, int mult)
@@ -132,7 +173,7 @@ namespace MatrixEx
 
         public static MatrixInt operator *(MatrixInt a, MatrixInt b)
         {
-            return a;
+            return Multiply(a, b);
         }
 
         public static MatrixInt operator -(MatrixInt a)
@@ -224,6 +265,9 @@ namespace MatrixEx
 
     public class MatrixMultiplyException : Exception
     {
-        
+        public MatrixMultiplyException()
+        {
+            
+        }
     }
 }
