@@ -7,3 +7,12 @@ D:\Cours\A4 2022-2023\Maths\MatrixEx\MatrixEx\bin\Debug\nunit.framework.xml
 D:\Cours\A4 2022-2023\Maths\MatrixEx\MatrixEx\obj\Debug\MatrixEx.csproj.CopyComplete
 D:\Cours\A4 2022-2023\Maths\MatrixEx\MatrixEx\obj\Debug\MatrixEx.dll
 D:\Cours\A4 2022-2023\Maths\MatrixEx\MatrixEx\obj\Debug\MatrixEx.pdb
+C:\Users\jhous\Desktop\Maths\Maths\MatrixEx\MatrixEx\bin\Debug\MatrixEx.dll
+C:\Users\jhous\Desktop\Maths\Maths\MatrixEx\MatrixEx\bin\Debug\MatrixEx.pdb
+C:\Users\jhous\Desktop\Maths\Maths\MatrixEx\MatrixEx\bin\Debug\nunit.framework.dll
+C:\Users\jhous\Desktop\Maths\Maths\MatrixEx\MatrixEx\bin\Debug\nunit.framework.xml
+C:\Users\jhous\Desktop\Maths\Maths\MatrixEx\MatrixEx\obj\Debug\MatrixEx.csproj.AssemblyReference.cache
+C:\Users\jhous\Desktop\Maths\Maths\MatrixEx\MatrixEx\obj\Debug\MatrixEx.csproj.CoreCompileInputs.cache
+C:\Users\jhous\Desktop\Maths\Maths\MatrixEx\MatrixEx\obj\Debug\MatrixEx.csproj.CopyComplete
+C:\Users\jhous\Desktop\Maths\Maths\MatrixEx\MatrixEx\obj\Debug\MatrixEx.dll
+C:\Users\jhous\Desktop\Maths\Maths\MatrixEx\MatrixEx\obj\Debug\MatrixEx.pdb

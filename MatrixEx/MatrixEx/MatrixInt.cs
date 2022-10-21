@@ -112,9 +112,27 @@ namespace MatrixEx
 
         public MatrixInt Multiply(MatrixInt matrix)
         {
-            return matrix;
-        }        
-        
+            matrix = new MatrixInt(matrix._array);
+
+            int line = 0;
+            int column = 0;
+            
+            line = matrix.NbLines < NbLines ? NbLines : matrix.NbLines;
+            column = matrix.NbColumns < NbColumns ? NbColumns : matrix.NbColumns;
+            
+            MatrixInt newMatrix = new MatrixInt(line, column);
+
+            for (int x = 0; x < newMatrix.NbLines; x++)
+            {
+                for (int y = 0; y < newMatrix.NbColumns; y++)
+                {
+                    newMatrix[x, y] = _array[x, 0] * matrix._array[0, y] + _array[x, 1] * matrix._array[1, y];
+                }
+            }
+            
+            return newMatrix;
+        }
+
         public static MatrixInt Multiply(MatrixInt a, MatrixInt b)
         {
             return a;
@@ -132,7 +150,25 @@ namespace MatrixEx
 
         public static MatrixInt operator *(MatrixInt a, MatrixInt b)
         {
-            return a;
+            a = new MatrixInt(a._array);
+        
+            int line = 0;
+            int column = 0;
+            
+            line = a.NbLines < b.NbLines ? a.NbLines : b.NbLines;
+            column = a.NbColumns < b.NbColumns ? a.NbColumns : b.NbColumns;
+            
+            MatrixInt newMatrix = new MatrixInt(line, column);
+            
+            for (int x = 0; x < newMatrix.NbLines; x++)
+            {
+                for (int y = 0; y < newMatrix.NbColumns; y++)
+                {
+                    newMatrix[x, y] = b._array[x, 0] * a._array[0, y] + b._array[x, 1] * a._array[1, y];
+                }
+            }
+            
+            return newMatrix;
         }
 
         public static MatrixInt operator -(MatrixInt a)

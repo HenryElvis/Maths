@@ -97,16 +97,15 @@ namespace Maths_Matrices.Tests
                 { 3, 1 },
                 { 48, 2 }
             });
-
-            // Ici
-            /*MatrixInt m3 = m1 + m2;
+            
+            MatrixInt m3 = m1 + m2;
             
             Assert.AreEqual(new[,]
             {
                 { 66, 11 },
                 { 11, 6 },
                 { 52, 19 },
-            }, m3.ToArray2D());*/
+            }, m3.ToArray2D());
             
             Assert.AreEqual(new[,]
             {
