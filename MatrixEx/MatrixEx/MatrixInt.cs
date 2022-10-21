@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MatrixEx
 {
@@ -253,6 +254,230 @@ namespace MatrixEx
         {
             return _array;
         }
+
+        public MatrixInt Transpose()
+        {
+            MatrixInt matrix = new MatrixInt(NbColumns, NbLines);
+
+            for (int x = 0; x < matrix.NbLines; x++)
+            {
+                for (int y = 0; y < matrix.NbColumns; y++)
+                {
+                    matrix[x, y] = _array[y, x];
+                }
+            }
+            
+            return matrix;
+        }
+
+        public static MatrixInt Transpose(MatrixInt matrix)
+        {
+            MatrixInt newMatrix = new MatrixInt(matrix.NbColumns, matrix.NbLines);
+
+            for (int x = 0; x < newMatrix.NbLines; x++)
+            {
+                for (int y = 0; y < newMatrix.NbColumns; y++)
+                {
+                    newMatrix[x, y] = matrix[y, x];
+                }
+            }
+            
+            return newMatrix;
+        }
+
+        public static MatrixInt GenerateAugmentedMatrix(MatrixInt matrix, MatrixInt matrix1)
+        {
+            MatrixInt newMatrix = new MatrixInt(matrix.NbLines, matrix.NbColumns + 1);
+            
+            MatrixInt firstMatrix = new MatrixInt(newMatrix.NbLines, newMatrix.NbColumns);
+            MatrixInt secondMatrix = new MatrixInt(newMatrix.NbLines, newMatrix.NbColumns);
+
+            for (int x = 0; x < firstMatrix.NbLines; x++)
+            {
+                for (int y = 0; y < firstMatrix.NbColumns; y++)
+                {
+                    if (y == 3)
+                        firstMatrix[x, y] = 0;
+                    
+                    firstMatrix[x, y] = matrix[x, y];
+                }
+            }
+            
+            // for (int x = 0; x < newMatrix.NbLines; x++)
+            // {
+            //     for (int y = 0; y < newMatrix.NbColumns; y++)
+            //     {
+            //         if (y == newMatrix.NbColumns)
+            //             firstMatrix[x, y] = matrix[x, y];
+            //         
+            //         firstMatrix[x, y] = 0;
+            //     }
+            // }
+
+            return firstMatrix + secondMatrix;
+            
+            /*
+             * [13 2 5   0]   [0 0  0  6]
+             * [8 9 4    0]   [0 0  0  8]
+             * [32 5 9   0]   [0 0  0  13]
+             */
+            
+            // (0, 3)
+            // (1, 3)
+            // (2, 3)
+            
+            // if y == newMatrix.NbLines
+            //
+            // for (int x = 0; x < newMatrix.NbLines; x++)
+            // {
+            //     for (int y = 0; y < newMatrix.NbColumns; y++)
+            //     {
+            //         // if (x < matrix.NbLines && y < matrix.NbColumns)
+            //         //     newMatrix[x, y] = matrix[x, y];
+            //         // else
+            //         //     newMatrix[x, y] = matrix1[x, y];
+            //         
+            //         newMatrix = matrix + matrix1;
+            //     }
+            // }
+            
+            return newMatrix;
+        }
+    }
+
+    public static class MatrixElementaryOperations
+    {
+        public static void SwapLines(MatrixInt matrix, int firstLine, int otherLine)
+        {
+            List<int> line = new List<int>();
+            List<int> line1 = new List<int>();
+            
+            for (int x = 0; x < matrix.NbLines; x++)
+            {
+                for (int y = 0; y < matrix.NbColumns; y++)
+                {
+                    if (x == firstLine)
+                        line.Add(matrix[x, y]);
+                    if (x == otherLine)
+                        line1.Add(matrix[x, y]);
+                }
+            }
+
+            for (int x = 0; x < matrix.NbLines; x++)
+            {
+                for (int y = 0; y < matrix.NbColumns; y++)
+                {
+                    if (x == firstLine)
+                        matrix[x, y] = line1[y];
+                    if (x == otherLine)
+                        matrix[x, y] = line[y];
+                }
+            }
+        }        
+        
+        public static void SwapColumns(MatrixInt matrix, int firstColumn, int otherColumn)
+        {
+            List<int> column = new List<int>();
+            List<int> column1 = new List<int>();
+            
+            for (int x = 0; x < matrix.NbLines; x++)
+            {
+                for (int y = 0; y < matrix.NbColumns; y++)
+                {
+                    if (y == firstColumn)
+                        column.Add(matrix[x, y]);
+                    if (y == otherColumn)
+                        column1.Add(matrix[x, y]);
+                }
+            }
+
+            for (int x = 0; x < matrix.NbLines; x++)
+            {
+                for (int y = 0; y < matrix.NbColumns; y++)
+                {
+                    if (y == firstColumn)
+                        matrix[x, y] = column1[x];
+                    if (y == otherColumn)
+                        matrix[x, y] = column[x];
+                }
+            }
+        }
+
+        public static void MultiplyLine(MatrixInt matrix, int line, int mult)
+        {
+            if (mult == 0)
+                throw new MatrixScalarZeroException();
+            
+            for (int x = 0; x < matrix.NbLines; x++)
+            {
+                for (int y = 0; y < matrix.NbColumns; y++)
+                {
+                    if (x == line)
+                        matrix[x, y] *= mult;
+                }
+            }
+        }
+
+        public static void MultiplyColumn(MatrixInt matrix, int column, int mult)
+        {
+            if (mult == 0)
+                throw new MatrixScalarZeroException();
+            
+            for (int x = 0; x < matrix.NbLines; x++)
+            {
+                for (int y = 0; y < matrix.NbColumns; y++)
+                {
+                    if (y == column)
+                        matrix[x, y] *= mult;
+                }
+            }
+        }
+
+        public static void AddLineToAnother(MatrixInt matrix, int line0, int line1, int mult)
+        {
+            List<int> firstLine = new List<int>();
+
+            for (int x = 0; x < matrix.NbLines; x++)
+            {
+                for (int y = 0; y < matrix.NbColumns; y++)
+                {
+                    if (x == line0)
+                        firstLine.Add(matrix[x, y] * mult);
+                }
+            }
+
+            for (int x = 0; x < matrix.NbLines; x++)
+            {
+                for (int y = 0; y < matrix.NbColumns; y++)
+                {
+                    if (x == line1)
+                        matrix[x, y] += firstLine[y];
+                }
+            }
+        }
+
+        public static void AddColumnToAnother(MatrixInt matrix, int column0, int column1, int mult)
+        {
+            List<int> firstColumn = new List<int>();
+
+            for (int x = 0; x < matrix.NbLines; x++)
+            {
+                for (int y = 0; y < matrix.NbColumns; y++)
+                {
+                    if (y == column0)
+                        firstColumn.Add(matrix[x, y] * mult);
+                }
+            }
+
+            for (int x = 0; x < matrix.NbLines; x++)
+            {
+                for (int y = 0; y < matrix.NbColumns; y++)
+                {
+                    if (y == column1)
+                        matrix[x, y] += firstColumn[x];
+                }
+            }
+        }
     }
 
     public class MatrixSumException : Exception
@@ -266,6 +491,14 @@ namespace MatrixEx
     public class MatrixMultiplyException : Exception
     {
         public MatrixMultiplyException()
+        {
+            
+        }
+    }
+
+    public class MatrixScalarZeroException : Exception
+    {
+        public MatrixScalarZeroException()
         {
             
         }
