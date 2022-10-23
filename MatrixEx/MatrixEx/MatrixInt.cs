@@ -323,14 +323,33 @@ namespace MatrixEx
 
         public (MatrixInt, MatrixInt) Split(int num)
         {
-            MatrixInt matrix = new MatrixInt(num);
-            MatrixInt matrix1 = new MatrixInt(num);
+            MatrixInt matrixDefault = new MatrixInt(NbLines,NbColumns);
+            
+            MatrixInt matrix = new MatrixInt(matrixDefault.NbLines,matrixDefault.NbColumns - 1);
+            MatrixInt matrix1 = new MatrixInt(matrixDefault.NbLines,matrixDefault.NbColumns - num - 1);
 
+            for (int x = 0; x < matrixDefault.NbLines; x++)
+            {
+                for (int y = 0; y < matrixDefault.NbColumns; y++)
+                {
+                    matrixDefault[x, y] = _array[x, y];
+                }
+            }
+            
             for (int x = 0; x < matrix.NbLines; x++)
             {
                 for (int y = 0; y < matrix.NbColumns; y++)
                 {
-                    Console.WriteLine($"({x}, {y})");
+                    matrix[x, y] = matrixDefault[x, y];
+                }
+            }
+
+            for (int x = 0; x < matrixDefault.NbLines; x++)
+            {
+                for (int y = 0; y < matrixDefault.NbColumns; y++)
+                {
+                    if (y == matrixDefault.NbColumns)
+                        matrix1[x, 0] = matrixDefault[x, y];
                 }
             }
             
@@ -470,6 +489,45 @@ namespace MatrixEx
                         matrix[x, y] += firstColumn[x];
                 }
             }
+        }
+    }
+
+    public class MatrixFloat
+    {
+        public int NbLines = 0;
+        public int NbColumns = 0;
+
+        private float[,] _array;
+
+        public float this[int i, int j]
+        {
+            get => _array[i, j];
+            set => _array[i, j] = value;
+        }
+        
+        public MatrixFloat(float[,] array)
+        {
+            NbLines = array.GetLength(0);
+            NbColumns = array.GetLength(1);
+
+            _array = new float[NbLines, NbColumns];
+            Array.Copy(array, _array, _array.Length);
+        }
+
+        public float[,] ToArray2D()
+        {
+            return _array;
+        }
+    }
+
+    public class MatrixRowReductionAlgorithm
+    {
+        public static (MatrixFloat, MatrixFloat) Apply(MatrixFloat m0, MatrixFloat m1)
+        {
+            MatrixFloat matrix = new MatrixFloat(new float[m0.NbLines, m0.NbColumns]);
+            MatrixFloat matrix1 = new MatrixFloat(new float[m1.NbLines, m1.NbColumns]);
+
+            return (matrix, matrix1);
         }
     }
 
