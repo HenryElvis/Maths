@@ -287,61 +287,54 @@ namespace MatrixEx
 
         public static MatrixInt GenerateAugmentedMatrix(MatrixInt matrix, MatrixInt matrix1)
         {
-            MatrixInt newMatrix = new MatrixInt(matrix.NbLines, matrix.NbColumns + 1);
-            
-            MatrixInt firstMatrix = new MatrixInt(newMatrix.NbLines, newMatrix.NbColumns);
-            MatrixInt secondMatrix = new MatrixInt(newMatrix.NbLines, newMatrix.NbColumns);
+            MatrixInt firstMatrix = new MatrixInt(matrix.NbLines, matrix.NbColumns + 1);
+            MatrixInt secondMatrix = new MatrixInt(matrix.NbLines, matrix.NbColumns + 1);
 
             for (int x = 0; x < firstMatrix.NbLines; x++)
             {
                 for (int y = 0; y < firstMatrix.NbColumns; y++)
                 {
-                    if (y == 3)
-                        firstMatrix[x, y] = 0;
-                    
-                    firstMatrix[x, y] = matrix[x, y];
+                    if (y != matrix.NbColumns)
+                        firstMatrix[x, y] = matrix[x, y];
+                    else
+                        firstMatrix[x, matrix.NbColumns] = 0;
+
+                    // Console.WriteLine($"({x}, {y}) : {firstMatrix[x, y]}");
                 }
             }
             
-            // for (int x = 0; x < newMatrix.NbLines; x++)
-            // {
-            //     for (int y = 0; y < newMatrix.NbColumns; y++)
-            //     {
-            //         if (y == newMatrix.NbColumns)
-            //             firstMatrix[x, y] = matrix[x, y];
-            //         
-            //         firstMatrix[x, y] = 0;
-            //     }
-            // }
+            for (int x = 0; x < secondMatrix.NbLines; x++)
+            {
+                Console.WriteLine(matrix1[0, 0]);
+                
+                for (int y = 0; y < secondMatrix.NbColumns; y++)
+                {
+                    if (y == matrix.NbColumns)
+                        secondMatrix[x, y] = matrix1[x, 0];
+                    else
+                        secondMatrix[x, y] = 0;
+                    
+                    // Console.WriteLine($"({x}, {y}) : {secondMatrix[x, y]}");
+                }
+            }
 
             return firstMatrix + secondMatrix;
+        }
+
+        public (MatrixInt, MatrixInt) Split(int num)
+        {
+            MatrixInt matrix = new MatrixInt(num);
+            MatrixInt matrix1 = new MatrixInt(num);
+
+            for (int x = 0; x < matrix.NbLines; x++)
+            {
+                for (int y = 0; y < matrix.NbColumns; y++)
+                {
+                    Console.WriteLine($"({x}, {y})");
+                }
+            }
             
-            /*
-             * [13 2 5   0]   [0 0  0  6]
-             * [8 9 4    0]   [0 0  0  8]
-             * [32 5 9   0]   [0 0  0  13]
-             */
-            
-            // (0, 3)
-            // (1, 3)
-            // (2, 3)
-            
-            // if y == newMatrix.NbLines
-            //
-            // for (int x = 0; x < newMatrix.NbLines; x++)
-            // {
-            //     for (int y = 0; y < newMatrix.NbColumns; y++)
-            //     {
-            //         // if (x < matrix.NbLines && y < matrix.NbColumns)
-            //         //     newMatrix[x, y] = matrix[x, y];
-            //         // else
-            //         //     newMatrix[x, y] = matrix1[x, y];
-            //         
-            //         newMatrix = matrix + matrix1;
-            //     }
-            // }
-            
-            return newMatrix;
+            return (matrix, matrix1);
         }
     }
 
