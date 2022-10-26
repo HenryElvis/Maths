@@ -385,6 +385,34 @@ namespace MatrixEx
                         matrix[x, y] = line[y];
                 }
             }
+        }
+        
+        public static void SwapLines(MatrixFloat matrix, int firstLine, int otherLine)
+        {
+            List<float> line = new List<float>();
+            List<float> line1 = new List<float>();
+            
+            for (int x = 0; x < matrix.NbLines; x++)
+            {
+                for (int y = 0; y < matrix.NbColumns; y++)
+                {
+                    if (x == firstLine)
+                        line.Add(matrix[x, y]);
+                    if (x == otherLine)
+                        line1.Add(matrix[x, y]);
+                }
+            }
+
+            for (int x = 0; x < matrix.NbLines; x++)
+            {
+                for (int y = 0; y < matrix.NbColumns; y++)
+                {
+                    if (x == firstLine)
+                        matrix[x, y] = line1[y];
+                    if (x == otherLine)
+                        matrix[x, y] = line[y];
+                }
+            }
         }        
         
         public static void SwapColumns(MatrixInt matrix, int firstColumn, int otherColumn)
@@ -426,6 +454,21 @@ namespace MatrixEx
                 {
                     if (x == line)
                         matrix[x, y] *= mult;
+                }
+            }
+        }
+        
+        public static void DivideLine(MatrixFloat matrix, int line, float div)
+        {
+            if (div == 0)
+                throw new MatrixScalarZeroException();
+            
+            for (int x = 0; x < matrix.NbLines; x++)
+            {
+                for (int y = 0; y < matrix.NbColumns; y++)
+                {
+                    if (x == line)
+                        matrix[x, y] /= div;
                 }
             }
         }
@@ -527,7 +570,21 @@ namespace MatrixEx
             MatrixFloat matrix = new MatrixFloat(new float[m0.NbLines, m0.NbColumns]);
             MatrixFloat matrix1 = new MatrixFloat(new float[m1.NbLines, m1.NbColumns]);
 
-            return (matrix, matrix1);
+            // MatrixElementaryOperations.SwapLines(m0, 0, 1);
+            // MatrixElementaryOperations.DivideLine(m0, 0, 3);
+            
+            for (int x = 0; x < matrix.NbLines; x++)
+            {
+                // if (m0[x, 0] < m0[++x, 0])
+                //     MatrixElementaryOperations.SwapLines(m0, x, ++x);
+                
+                for (int y = 0; y < matrix.NbColumns; y++)
+                {
+                    Console.WriteLine(m0[x, y]);
+                }
+            }
+            
+            return (m0, m1);
         }
     }
 
